@@ -12,12 +12,16 @@ conditional branches, or the target binary is cumbersome to launch.
 ```console
 ./gecho
 ```
-Will output `{"arguments":["./gecho"]}`.
+Will output `{"arguments":["./gecho"],"envvars":["NAME=VALUE"]}`.  The `envvars`
+array will contain an element for every environment variable that was passed to
+the process (i.e. exported on Unix-like platforms).  The elements are reported
+as they are received from the `os.Environ()` function: variable name, equal
+sign, and variable value as a single string.
 
 ```console
 ./gecho -la directory/
 ```
-Will output `{"arguments":["./gecho","-la","directory/"]}`.
+Will output `{"arguments":["./gecho","-la","directory/"],"envvars":[NAME=VALUE]}`.
 
 ## Building
 ```console
