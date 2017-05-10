@@ -10,10 +10,14 @@ conditional branches, or the target binary is cumbersome to launch.
 
 ## Usage
 ```console
-test gecho
-echo $?
+./gecho
 ```
-Returns `0` indicating a successful test.
+Will output `{"arguments":["./gecho"]}`.
+
+```console
+./gecho -la directory/
+```
+Will output `{"arguments":["./gecho","-la","directory/"]}`.
 
 ## Building
 ```console
@@ -21,7 +25,9 @@ go build
 ```
 
 ## Testing
-No tests yet.
+```console
+go test -v
+```
 
 ## Installing
 ```console
