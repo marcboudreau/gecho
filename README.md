@@ -3,9 +3,9 @@
 is output its environment variables and the command line arguments it was given
 in a JSON representation.
 
-By using **gecho**, instead of another binary, a test can be constructed that
-runs the launch script and validates that the correct arguments and environment
-variables were set.  This is especially useful when the launch script has multiple
+By using **gecho**, instead of your regular binary, you can easily test that the
+launch script sets up the correct environment variables and command line
+arguments.This is especially useful when the launch script has multiple
 conditional branches, or the target binary is cumbersome to launch.
 
 ## Usage
