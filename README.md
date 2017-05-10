@@ -1,3 +1,5 @@
+[![Build Status][circleci-image]][circleci-url]
+
 # gecho
 **gecho** is a binary that is useful for testing launch scripts.  All that it does
 is output its environment variables and the command line arguments it was given
@@ -37,3 +39,6 @@ go test -v
 ```console
 go install github.com/marcboudreau/gecho
 ```
+
+[circleci-image]: https://img.shields.io/circleci/project/marcboudreau/gecho.svg?style=svg
+[circleci-url]: https://circleci.com/gh/marcboudreau/gecho
