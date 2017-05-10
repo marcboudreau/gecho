@@ -10,15 +10,15 @@ import (
 // ArgsEnvVarReport is a structure that contains all of command line arguments
 // and environment variables passed to this process, which can be encoded into
 // a JSON representation.
-type ArgsEnvVarReport struct {
+type argsEnvVarReport struct {
   Arguments []string `json:"arguments"`
-  //EnvVars map[string]string `json:"environmentVariables"`
+  EnvVars []string `json:"envvars"`
 }
 
 // Report builds a JSON encoded report from the provided arguments and
 // environment variables.
-func Report(args []string) string {
-  report := ArgsEnvVarReport{ Arguments: args}
+func Report(args, envs []string) string {
+  report := argsEnvVarReport{ Arguments: args, EnvVars: envs}
 
   buffer := &bytes.Buffer{}
   if err := json.NewEncoder(buffer).Encode(report); err != nil {
@@ -29,7 +29,7 @@ func Report(args []string) string {
 }
 
 func main() {
-  fmt.Println(Report(os.Args[0:]))
+  fmt.Println(Report(os.Args[0:], os.Environ()))
 
   os.Exit(0)
 }
